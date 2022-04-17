@@ -1,5 +1,5 @@
 pipeline {
-     agent any
+     agent {prasad-db21.fyre.ibm.com}
      triggers {
           pollSCM('* * * * *')
      }
