@@ -17,11 +17,12 @@ pipeline {
           stage("Code coverage") {
                steps {
                     sh "./gradlew jacocoTestReport"
-                    /*publishHTML (target: [
+                    // HTML Publisher plugin required to run this
+                    publishHTML (target: [
                          reportDir: 'build/reports/jacoco/test/html',
                          reportFiles: 'index.html',
                          reportName: "JaCoCo Report"
-                    ])*/
+                    ])
                     sh "./gradlew jacocoTestCoverageVerification"
                }
           }
