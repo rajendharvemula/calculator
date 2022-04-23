@@ -43,7 +43,7 @@ pipeline {
           }
           stage ("Docker build") {
                 steps {
-                    sh "docker build -t leszko/calculator ."
+                    sh "podman build -t leszko/calculator ."
                 }
           }
      }
