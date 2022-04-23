@@ -46,5 +46,10 @@ pipeline {
                     sh "podman build -t rajvemula/calculator ."
                 }
           }
+          stage ("Docker push") {
+                steps {
+                       sh "Docker push rajvemula/calculator"
+                }
+          }
      }
 }
