@@ -46,9 +46,17 @@ pipeline {
                     sh "podman build -t rajvemula/calculator ."
                 }
           }
-          stage ("Docker push") {
+          stage ("Docker login") {
                 steps {
-                       sh "Docker push rajvemula/calculator"
+                    withCredentials([usernamePassword(credentialsId: '325beef9-6ade-425b-8632-83f0264d1264', passwordVariable: 'Docker_Password', usernameVariable: 'Docker_User')]) {
+                        sh "podman login --username $Docker_User --password $Docker_Password"
+                    }
+                }
+          }
+
+          stage ("podman push") {
+                steps {
+                       sh "podman push rajvemula/calculator"
                 }
           }
      }
