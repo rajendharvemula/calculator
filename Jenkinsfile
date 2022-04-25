@@ -48,13 +48,12 @@ pipeline {
           }
           stage ("Docker login") {
                 steps {
-                    withCredentials([usernamePassword(credentialsId: 'ea6de769-ddb5-4461-a378-77c260b74286', passwordVariable: 'docker-password', usernameVariable: 'docker-user')]) {
+                    withCredentials([usernamePassword(credentialsId: 'ea6de769-ddb5-4461-a378-77c260b74286', passwordVariable: 'docker-password', usernameVariable: 'docker-user')])
                     {
                         sh "docker login --username $docker-user --password $docker-password"
                     }
                 }
           }
-
           stage ("Docker push") {
                 steps {
                        sh "docker push rajvemula/calculator"
