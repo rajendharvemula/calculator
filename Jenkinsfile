@@ -49,7 +49,7 @@ pipeline {
           stage ("Docker login") {
                 steps {
                     withCredentials([usernamePassword(credentialsId: 'd9acda90-d0de-433f-91f1-65624abe9aef', passwordVariable: 'dockerPassword', usernameVariable: 'dockerUser')]) {
-                        sh "podman login --username $dockerUser --password $dockerPassword"
+                        sh "docker login --username $dockerUser --password $dockerPassword"
                         echo "*** login stage completed ***"
                     }
                 }
