@@ -43,7 +43,7 @@ pipeline {
           }
           stage ("Docker build") {
                 steps {
-                    sh "podman build -t rajvemula/calculator ."
+                    sh "docker build -t rajvemula/calculator ."
                 }
           }
           stage ("Docker login") {
@@ -57,7 +57,7 @@ pipeline {
           stage ("Docker push") {
                 steps {
                         echo "*** docker push stage started ***"
-                       sh "podman push rajvemula/calculator"
+                       sh "docker push rajvemula/calculator"
                 }
           }
      }
