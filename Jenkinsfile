@@ -50,13 +50,11 @@ pipeline {
                 steps {
                     withCredentials([usernamePassword(credentialsId: 'd9acda90-d0de-433f-91f1-65624abe9aef', passwordVariable: 'dockerPassword', usernameVariable: 'dockerUser')]) {
                         sh "docker login --username $dockerUser --password $dockerPassword"
-                        echo "*** login stage completed ***"
                     }
                 }
           }
           stage ("Docker push") {
                 steps {
-                        echo "*** docker push stage started ***"
                        sh "docker push rajvemula/calculator"
                 }
           }
