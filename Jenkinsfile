@@ -63,5 +63,11 @@ pipeline {
                     sh "docker run -d -p 8765:8080 --name calculator rajvemula/calculator"
                 }
          }
+         stage ("Acceptence stage") {
+                steps {
+                    sleep 60
+                    sh "./acceptance_test.sh"
+                }
+         }
      }
 }
