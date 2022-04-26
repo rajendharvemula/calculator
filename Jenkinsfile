@@ -69,11 +69,11 @@ pipeline {
                    // sh "./acceptance_test.sh"
                 }
          }
+     }
          post {
               always {
                     // cleanup the calculator application
                    sh "docker stop calculator"
               }
          }
-     }
 }
