@@ -66,8 +66,14 @@ pipeline {
          stage ("Acceptence stage") {
                 steps {
                     sleep 60
-                    sh "./acceptance_test.sh"
+                   // sh "./acceptance_test.sh"
                 }
+         }
+         post {
+              always {
+                    // cleanup the calculator application
+                   sh "docker stop calculator"
+              }
          }
      }
 }
